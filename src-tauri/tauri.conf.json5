@@ -12,7 +12,19 @@
     },
     tauri: {
         allowlist: {
-            all: true,
+            all: false,
+            shell: {
+                all: true
+            },
+            globalShortcut: {
+                all: true
+            },
+            window: {
+                minimize: true,
+                unminimize: true,
+                setFocus: true,
+                close: true,
+            }
         },
         systemTray: {
             iconAsTemplate: true,
@@ -27,10 +39,10 @@
             },
             externalBin: [],
             icon: [
-//                'icons/32x32.png',
-//                'icons/128x128.png',
-//                'icons/128x128@2x.png',
-//                'icons/icon.icns',
+                //                'icons/32x32.png',
+                //                'icons/128x128.png',
+                //                'icons/128x128@2x.png',
+                //                'icons/icon.icns',
                 'icons/vite.ico',
             ],
             identifier: 'com.naz.dev',
@@ -42,7 +54,7 @@
                 certificateThumbprint: null,
                 digestAlgorithm: 'sha256',
                 timestampUrl: '',
-            }
+            },
         },
         security: {
             csp: null,
@@ -53,15 +65,15 @@
         windows: [
             {
                 title: 'Apps Launcher',
-                width: 790,     // 804
-                height: 681,    // 681
+                width: 790,
+                height: 681,
                 transparent: true,
                 decorations: false,
                 resizable: false,
                 skipTaskbar: true,
                 alwaysOnTop: true,
-                focus: false,
-                theme: 'Dark',
+//                focus: false,
+//                theme: 'Dark'
             },
         ],
     },

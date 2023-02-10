@@ -6,7 +6,6 @@
 
     //background-color: hsla(0, 0%, 6%, 0.94);
     background-color: transparent;
-    //backdrop-filter: blur(10px);
     //font-synthesis: none;
     //text-rendering: optimizeLegibility;
     //-webkit-font-smoothing: antialiased;
@@ -42,19 +41,19 @@ body { margin: 0; overflow: hidden; }
         //&:nth-child(even) { background-color: hsl(0, 0%, 5%); }
         h2 { margin: 0.5rem 0 0 0; padding: 0 0.6rem; font-size: 1.1rem; font-weight: 300; color: hsl(0, 0%, 60%); }
         ul { list-style: none; margin: 0.6rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem;
-            li { padding: 1rem 1.4rem; border-radius: 1rem; will-change: border; transition: all 0.1s cubic-bezier(.25,-0.38,.53,1.47);
+            li { padding: 1rem 1.4rem; border-radius: 1rem; will-change: border; transition: all 0.1s /*cubic-bezier(.25,-0.38,.53,1.47)*/;
                 & > * { pointer-events: none; }
                 figure { margin: 0; display: flex; flex-flow: column; gap: 0.6rem; place-items: center;
                     img { width: 64px; height: 64px; }
-                    figcaption {  font-size: 0.94rem; width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; }
+                    figcaption {  font-size: 0.94rem; width: 64px; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
                 }
-                &:hover { outline: 1px solid rgba(255, 255, 0, 0.4); background-color: hsla(0, 0%, 6%, 0.65); transform: scale(1.1); box-shadow: 0 0 3rem hsla(278, 100%, 54%, 0.6);
+                &:hover { outline: 1px solid rgba(255, 255, 0, 0.2); background-color: hsla(0, 0%, 0%, 0.3); /*transform: scale(1.06);*/ box-shadow: 0 0 2rem hsla(264, 100%, 50%, 0.5);
                     figure {
-                        img { filter: shadow(2px 3px 1rem rgba(0, 0, 0, 0.46)); }
+                        img { /*filter: shadow(2px 3px 1rem rgba(0, 0, 0, 0.46));*/ }
                         figcaption { color: #ffffff; }
                     }
                 }
-                &:active { outline-width: 2px; box-shadow: none;
+                &:active { /*outline-width: 2px;*/ box-shadow: none; transform: none;
                     figure {
                         img { filter: saturate(1.4); }
                         figcaption { }
