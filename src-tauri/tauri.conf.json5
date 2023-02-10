@@ -20,10 +20,12 @@
                 all: true
             },
             window: {
-                minimize: true,
-                unminimize: true,
+//                minimize: true,
+//                unminimize: true,
                 setFocus: true,
                 close: true,
+                hide: true,
+                show: true,
             }
         },
         systemTray: {

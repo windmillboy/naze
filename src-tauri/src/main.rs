@@ -30,7 +30,7 @@ fn main() {
             #[cfg(target_os = "windows")]
             apply_acrylic(&window, Some((20, 20, 20, 128)))
                 .expect("Unsupported platform! 'apply_acrylic' is only supported on Windows");
-            window.minimize().unwrap();
+            window.hide().unwrap();
             Ok(())
         })
         .system_tray(SystemTray::new())
@@ -40,7 +40,7 @@ fn main() {
                 ..
             } = event {
                 let main_window = app.get_window("main").unwrap();
-                main_window.unminimize().unwrap();
+                main_window.show().unwrap();
                 main_window.set_focus().unwrap();
             })
         .run(tauri::generate_context!())

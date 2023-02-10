@@ -1,5 +1,5 @@
 import './style.scss'
-import { shell} from "@tauri-apps/api";
+import { shell } from "@tauri-apps/api";
 import { appWindow } from "@tauri-apps/api/window";
 import { register, isRegistered } from "@tauri-apps/api/globalShortcut";
 // import { BaseDirectory } from "@tauri-apps/api/fs";
@@ -21,7 +21,7 @@ _('#pageMain')!.addEventListener('click', async evt => {
         // }
 
         await shell.open(`C:\\Users\\nazhorn\\Desktop\\App's Shortcuts\\${filePath}.lnk`);
-        await appWindow.minimize();
+        await appWindow.hide();
     }
 });
 
@@ -33,7 +33,8 @@ _('#pageHeader')!.addEventListener('click', async evt => {
     const cmd = ele.dataset['cmd'];
     switch (cmd) {
         case 'minimize':
-            await appWindow.minimize();
+            await appWindow.hide();
+            // await appWindow.minimize();
             break;
         case 'close':
             await appWindow.close();
@@ -49,12 +50,14 @@ _('#pageHeader')!.addEventListener('click', async evt => {
 // }
 
 window.addEventListener('load', async _ => {
-    const hotkey = 'Alt+Super+Enter';
+    // const hotkey = 'Super+Z';
+    const hotkey = 'Alt+Super+Space';
     const isHotkeyRegistered = await isRegistered(hotkey);
 
     if (!isHotkeyRegistered) {
         await register(hotkey, async () => {
-            await appWindow.unminimize();
+            await appWindow.show();
+            // await appWindow.unminimize();
             await appWindow.setFocus();
         });
     }
@@ -68,7 +71,6 @@ document.addEventListener('keydown', async evt => {
 // document.addEventListener('visibilitychange' , _ => console.log(document.visibilityState));
 
 window.addEventListener('blur', async _ => {
-    console.log(Date.now() + ' : blur')
-    // if ((await appWindow.outerPosition()).x > 0)
-    //     await appWindow.minimize();
+    //console.log(Date.now() + ' : blur')
+    appWindow.hide();
 });
